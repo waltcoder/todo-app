@@ -1,0 +1,236 @@
+*,
+*::after,
+*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+/* ## Colors */
+
+/* ### Primary */
+
+--bright-blue: hsl(220, 98%, 61%);
+--check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+/* ### Neutral */
+
+/* ### Light Theme */
+
+--very-light-gray: hsl(0, 0%, 98%);
+--very-light-grayish-blue: hsl(236, 33%, 92%);
+--light-grayish-blue: hsl(233, 11%, 84%);
+--dark-grayish-blue: hsl(236, 9%, 61%);
+--very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+/* ### Dark Theme */
+
+--very-dark-blue: hsl(235, 21%, 11%);
+--very-dark-desaturated-blue: hsl(235, 24%, 19%);
+--light-grayish-blue: hsl(234, 39%, 85%);
+--light-grayish-blue-hover: hsl(236, 33%, 92%);
+--dark-grayish-blue: hsl(234, 11%, 52%);
+--very-dark-grayish-blue: hsl(233, 14%, 35%);
+--very-dark-grayish-blue: hsl(237, 14%, 26%);
+
+
+
+/* ### Font */
+
+--ff: 'Josefin Sans', sans-serif;
+--fw-primary: 400;
+--fw-secondary: 700;
+}
+
+html{
+  font-size: 62.5%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--very-dark-blue);
+  color: var(--very-light-gray);
+}
+
+body, input, button {
+  font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+}
+
+header{
+  background: url('./images/bg-desktop-dark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 375px;
+  width: 100%;
+}
+
+#app{
+  width: min(90%, 600px);
+  margin: -25rem auto 0 auto;
+}
+
+#app-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+#app-nav > button {
+  font-size: 5rem;
+  font-weight: var(--fw-secondary);
+  text-transform: uppercase;
+
+  color: var(--very-light-gray);
+  letter-spacing: 2rem;
+}
+
+button{
+  background: none;
+  border: none;
+  border-radius: none;
+  cursor: pointer;
+}
+
+#app-form {
+  background-color: var(--very-dark-desaturated-blue);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+#app-form > button {
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  border: 1px solid var(--dark-grayish-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  background-color: initial;
+  color: var(--light-grayish-blue);
+  border: initial;
+  font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+  width: 100%;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+  color: var(--light-grayish-blue);
+}
+::-moz-placeholder { /* Firefox 19+ */
+   font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+  color: var(--light-grayish-blue);
+}
+:-ms-input-placeholder { /* IE 10+ */
+   font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+  color: var(--light-grayish-blue);
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: var(--ff);
+  font-size: 1.8rem;
+  font-weight: var(--fw-primary);
+  color: var(--light-grayish-blue);
+}
+
+#app-list {
+  background-color: var(--very-dark-desaturated-blue);
+  border-radius: 0.5rem;
+  list-style: none;
+  box-shadow: rgb(27 30 92 / 30%) 0px 18px 50px -10px;
+  
+  display: flex;
+  flex-direction: column; 
+}
+
+#app-list > li {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+#app-list > li > .check {
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  border: 1px solid var(--dark-grayish-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+#app-list > li {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--dark-grayish-blue);
+}
+
+#app-list > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
+
+#app-list > div button{
+  font-size: 1.6rem;
+  color: var(--dark-grayish-blue);
+}
+
+#app-list > div > li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#app-list > div > li > button {
+  font-weight: var(--fw-secondary);
+}
+
+#app-list > div button.active {
+  color: var(--bright-blue);
+}
+
+
+
+:focus{
+  outline: none;
+}
+
+@media screen and (max-width: 640px) {
+  html{
+    font-size: 62.5%;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body, input, button {
+    font-family: var(--ff);
+    font-size: 1.3rem;
+    font-weight: var(--fw-primary);
+  }
+  #app-nav > button {
+    font-size: 3rem;
+    font-weight: var(--fw-secondary);
+    text-transform: uppercase;
+  
+    color: var(--very-light-gray);
+    letter-spacing: 1rem;
+  }
+}
