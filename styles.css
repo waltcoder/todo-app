@@ -12,7 +12,7 @@
 /* ### Primary */
 
 --bright-blue: hsl(220, 98%, 61%);
---check-background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+--check-background: linear-gradient(to left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 
 /* ### Neutral */
 
@@ -51,10 +51,10 @@ html{
 }
 
 body{
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: var(--very-dark-blue);
-  color: var(--very-light-gray);
+  color: var(--light-grayish-blue);
 }
 
 body, input, button {
@@ -68,12 +68,12 @@ header{
   background-size: cover;
   background-repeat: no-repeat;
 
-  height: 375px;
+  height: 300px;
   width: 100%;
 }
 
 #app{
-  width: min(90%, 600px);
+  width: min(90%, 640px);
   margin: -25rem auto 0 auto;
 }
 
@@ -91,6 +91,10 @@ header{
 
   color: var(--very-light-gray);
   letter-spacing: 2rem;
+}
+
+#app-nav > svg {
+  cursor: pointer;
 }
 
 button{
@@ -113,14 +117,14 @@ button{
 #app-form > button {
   min-height: 2.5rem;
   min-width: 2.5rem;
-  border: 1px solid var(--dark-grayish-blue);
+  border: 1px solid var(--very-dark-grayish-blue);
   border-radius: 50%;
   cursor: pointer;
 }
 
 input[type="text"] {
   background-color: initial;
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
   border: initial;
   font-family: var(--ff);
   font-size: 1.8rem;
@@ -132,25 +136,25 @@ input[type="text"] {
    font-family: var(--ff);
   font-size: 1.8rem;
   font-weight: var(--fw-primary);
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
 }
 ::-moz-placeholder { /* Firefox 19+ */
    font-family: var(--ff);
   font-size: 1.8rem;
   font-weight: var(--fw-primary);
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
 }
 :-ms-input-placeholder { /* IE 10+ */
    font-family: var(--ff);
   font-size: 1.8rem;
   font-weight: var(--fw-primary);
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
 }
 :-moz-placeholder { /* Firefox 18- */
   font-family: var(--ff);
   font-size: 1.8rem;
   font-weight: var(--fw-primary);
-  color: var(--light-grayish-blue);
+  color: var(--dark-grayish-blue);
 }
 
 #app-list {
@@ -169,16 +173,47 @@ input[type="text"] {
   gap: 2rem;
 }
 
+
+#app-list > li {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--very-dark-grayish-blue);
+}
+
+
+
 #app-list > li > .check {
   min-height: 2.5rem;
   min-width: 2.5rem;
-  border: 1px solid var(--dark-grayish-blue);
   border-radius: 50%;
   cursor: pointer;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-color: var(--very-dark-grayish-blue);
 }
-#app-list > li {
-  padding: 1.5rem;
-  border-bottom: 1px solid var(--dark-grayish-blue);
+
+#app-list > li > .check:hover{
+  border-image-source: var(--check-background);
+  border-radius: 50%;
+}
+#app-list > li > .check.active{
+  background-color: var(--check-background);
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#app-list > li > .task {
+  flex: 1;
+}
+
+#app-list > li > svg {
+  display: none;
+}
+
+#app-list > li:hover svg {
+  cursor: pointer;
+  display: block;
 }
 
 #app-list > div {
@@ -199,8 +234,13 @@ input[type="text"] {
   gap: 1rem;
 }
 
+
 #app-list > div > li > button {
   font-weight: var(--fw-secondary);
+}
+
+#app-list > div button:hover{
+  color: var(--light-grayish-blue-hover)
 }
 
 #app-list > div button.active {
@@ -208,6 +248,9 @@ input[type="text"] {
 }
 
 
+#app > li {
+  display: none;
+}
 
 :focus{
   outline: none;
@@ -225,12 +268,56 @@ input[type="text"] {
     font-size: 1.3rem;
     font-weight: var(--fw-primary);
   }
-  #app-nav > button {
+  header{
+    background-image: url('./images/bg-mobile-dark.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+  }
+    #app{
+      width: min(90%, 640px);
+      margin: -15rem auto 0 auto;
+    }
+        #app-nav > button {
     font-size: 3rem;
     font-weight: var(--fw-secondary);
     text-transform: uppercase;
   
     color: var(--very-light-gray);
     letter-spacing: 1rem;
+  }
+
+  #app-list {
+    margin-bottom: 2rem;
+  }
+  #app-list > li > svg {
+    display: block;
+  }
+
+  #app-list > div > li {
+    display: none;
+  }
+
+  #app > li {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--very-dark-desaturated-blue);
+    box-shadow: rgb(27 30 92 / 30%) 0px 18px 50px -10px;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  #app > li > button {
+    color: var(--dark-grayish-blue);
+    font-weight: var(--fw-secondary);
+  }
+
+  #app > li > button:hover{
+    color: var(--light-grayish-blue-hover);
+  }
+  #app > li > button.active {
+    color: var(--bright-blue);
   }
 }
